@@ -105,15 +105,6 @@ class FunctionWrapper {
 	 * @param array   $defaults
 	 * @return array
 	 */
-	private function _parse_args( $args, $defaults ) {
-		$_arg = reset($defaults);
-
-		foreach ( $args as $index => $arg ) {
-			$defaults[$index] = is_null($arg) ? $_arg : $arg;
-			$_arg = next($defaults);
-		}
-
-		return $defaults;
-	}
+	
 
 }

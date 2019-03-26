@@ -4,11 +4,7 @@
 
 	class TestTimberCache extends Timber_UnitTestCase {
 
-        private function _generate_transient_name() {
-            static $i = 0;
-            $i++;
-            return 'timber_test_transient_' . $i;
-        }
+        
 
         function testTransientLock() {
 

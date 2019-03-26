@@ -249,16 +249,7 @@ class Loader {
 	/**
 	 * @return \Asm89\Twig\CacheExtension\Extension
 	 */
-	private function _get_cache_extension() {
-
-		$key_generator   = new \Timber\Cache\KeyGenerator();
-		$cache_provider  = new \Timber\Cache\WPObjectCacheAdapter($this);
-		$cache_lifetime  = apply_filters('timber/cache/extension/lifetime', 0);
-		$cache_strategy  = new \Asm89\Twig\CacheExtension\CacheStrategy\GenerationalCacheStrategy($cache_provider, $key_generator, $cache_lifetime);
-		$cache_extension = new \Asm89\Twig\CacheExtension\Extension($cache_strategy);
-
-		return $cache_extension;
-	}
+	
 
 	/**
 	 * @param string $key
@@ -326,17 +317,6 @@ class Loader {
 	 * @param string $cache_mode
 	 * @return string
 	 */
-	private function _get_cache_mode( $cache_mode ) {
-		if ( empty($cache_mode) || self::CACHE_USE_DEFAULT === $cache_mode ) {
-			$cache_mode = $this->cache_mode;
-		}
-
-		// Fallback if self::$cache_mode did not get a valid value
-		if ( !in_array($cache_mode, self::$cache_modes) ) {
-			$cache_mode = self::CACHE_OBJECT;
-		}
-
-		return $cache_mode;
-	}
+	
 
 }
